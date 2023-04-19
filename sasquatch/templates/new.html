@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Sasquatch Websighting</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome {{session['first_name']}}!</h1>
+        <a href="/dashboard" class="btn btn-info">Home</a>
+        <a class="btn btn-info" href="/logout">Logout</a>
+    </div>
+    <h1>Report a Sighting</h1>
+    <form class="form-group bg-dark text-light text-center p-5 rounded" action="/create" method="POST">
+        <label class="form-label" for="name">Location:</label>
+        <input class="form-control" type="text" name="name" value="">
+        <label class="form-label" for="descr">What Happened:</label>
+        <textarea class="form-control" name="descr" id="descr" cols="30" rows="10"></textarea>
+        <label class="form-label" for="date" >Date of Sighting:</label>
+        <input class="form-control" type="date" name="date">
+        <label class="form-label" for="num"># of Sasquatches:</label>
+        <input class="form-control" type="number" name="num">
+        <input type="submit" class="btn btn-primary" value="Report">
+        <input type="hidden" name="users_id" value="{{session['user_id']}}">
+    </form>
+</body>
+</html>
